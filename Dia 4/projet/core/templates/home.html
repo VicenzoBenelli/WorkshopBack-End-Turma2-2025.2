@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Home – Consultar CEP</title>
+</head>
+<body>
+    <h1>Digite o CEP</h1>
+
+    <form method="get" action="{% url 'consulta_cep' %}">
+        <label for="cep">CEP:</label>
+        <input type="text" id="cep" name="cep" placeholder="Digite o CEP" required>
+        <button type="submit">Consultar</button>
+    </form>
+</body>
+</html>

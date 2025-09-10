@@ -13,15 +13,15 @@ class EnderecoFormView(FormView):
     def form_valid(self, form):
         cep = form.cleaned_data['cep'].replace('-', '').strip()
 
-        # Consulta na API ViaCEP
+        
         response = requests.get(f'https://viacep.com.br/ws/{cep}/json/',verify=False)
 
         if response.status_code == 200:
             data = response.json()
 
-            # Verifica se o CEP existe
+            
             if not data.get('erro'):
-                # Evita duplicar CEP no banco
+                
                 if not Endereco.objects.filter(cep=data.get('cep')).exists():
                     Endereco.objects.create(
                         cep=data.get('cep'),

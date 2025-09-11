@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>CRUD CEP</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 20px; }
+        nav a { margin-right: 10px; }
+    </style>
+</head>
+<body>
+    <h1>CRUD de Endereços</h1>
+    <nav>
+        <a href="{% url 'endereco_form' %}">Novo CEP</a> |
+        <a href="{% url 'endereco_list' %}">Lista</a>
+    </nav>
+    <hr>
+    {% block content %}{% endblock %}
+</body>
+</html>

@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+{% block content %}
+<h2>Lista de Endereços</h2>
+<ul>
+{% for e in enderecos %}
+    <li>
+        {{ e }} —
+        <a href="{% url 'endereco_detail' e.pk %}">Detalhes</a> |
+        <a href="{% url 'endereco_update' e.pk %}">Editar</a> |
+        <a href="{% url 'endereco_delete' e.pk %}">Excluir</a>
+    </li>
+{% empty %}
+    <li>Nenhum endereço cadastrado.</li>
+{% endfor %}
+</ul>
+{% endblock %}

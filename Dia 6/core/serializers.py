@@ -13,7 +13,7 @@ class AddressSerializer(serializers.ModelSerializer):
         cep_num = re.sub(r"\D", "", value or "")
         if len(cep_num) != 8:
             raise serializers.ValidationError("CEP deve ter 8 dígitos.")
-        return f"{cep_num[:5]}-{cep_num[5:]}"  # normaliza como 00000-000
+        return f"{cep_num[:5]}-{cep_num[5:]}"  
 
     def create(self, validated_data):
         cep = validated_data["cep"].replace("-", "")
